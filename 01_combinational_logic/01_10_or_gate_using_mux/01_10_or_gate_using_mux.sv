@@ -29,5 +29,29 @@ module or_gate_using_mux
   // Implement or gate using instance(s) of mux,
   // constants 0 and 1, and wire connections
 
+    // Таблица истинности для "ИЛИ"
+    // a b a|b
+    // 0 0 0
+    // 0 1 1
+    // 1 0 1
+    // 1 1 1
+
+    // Таблицу можно интерпретировать так:
+    // если а = 0, на выходе b
+    // если a = 1, на выходе 1
+
+    mux or_gate (
+    .d0(b),     // если a = 0, то выводим b
+    .d1(1'b1),  // Если a = 1, то выводим 1
+    .sel(a),    
+    .y(o)       
+  );
+
+
+
+
+
+
+
 
 endmodule

@@ -27,5 +27,14 @@ module not_gate_using_mux
   // Implement not gate using instance(s) of mux,
   // constants 0 and 1, and wire connections
 
+    // Идея состоит в том, чтобы использовать вход i как управляющий сигнал sel для мультиплексора.
+
+    
+    mux not_gate (
+        .d0(1'b1),  // На входы мультиплексора подаём 1 и 0
+        .d1(1'b0),  
+        .sel(i),    // Входной сигнал подключаем как управляющий
+        .y(o)       // Выходной сигнал мультиплексора подключаем к выходу
+      );
 
 endmodule

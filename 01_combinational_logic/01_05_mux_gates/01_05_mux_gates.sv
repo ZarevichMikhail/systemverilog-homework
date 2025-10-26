@@ -25,8 +25,7 @@ module mux_2_1_width_2
   // { 2 { a } } is the same as { a, a }
   // { 4 { a } } is the same as { a, a, a, a }
 
-  assign y =   (d0 & { 2 { ~ sel }})
-             | (d1 & { 2 {   sel }});
+  assign y =  (d0 & { 2 { ~ sel }}) | (d1 & { 2 {   sel }});
 
 endmodule
 
@@ -67,5 +66,15 @@ module mux_4_1
   // mux_4_1_width_1 as examples,
   // write code for 4:1 mux using only &, | and ~ operations.
 
+
+    wire sel0 = ~sel[1] & ~sel[0]; // Активен (равен 1), когда sel = 2'b00
+    wire sel1 = ~sel[1] &  sel[0]; // Активен (равен 1), когда sel = 2'b01
+    wire sel2 =  sel[1] & ~sel[0]; // Активен (равен 1), когда sel = 2'b10
+    wire sel3 =  sel[1] &  sel[0]; // Активен (равен 1), когда sel = 2'b11
+
+    assign y =   (d0 & {4{sel0}})  // Включаем d0, если sel = 00
+                | (d1 & {4{sel1}})  // ИЛИ включаем d1, если sel = 01
+                | (d2 & {4{sel2}})  // ИЛИ включаем d2, если sel = 10
+                | (d3 & {4{sel3}}); // ИЛИ включаем d3, если sel = 11
 
 endmodule
