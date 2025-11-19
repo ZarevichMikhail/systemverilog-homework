@@ -30,4 +30,12 @@ module serial_adder_with_vld
   // When rst is high, the module should reset its internal state.
 
 
+    always_ff @(posedge clk)
+        if (rst)
+            carry <= '0;
+        else if (vld)
+        begin
+            
+        end
+
 endmodule

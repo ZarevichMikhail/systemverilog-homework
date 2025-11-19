@@ -2,6 +2,7 @@
 // Example
 //----------------------------------------------------------------------------
 
+// Первый бит самый младший 
 module serial_comparator_least_significant_first_using_fsm
 (
   input  clk,
